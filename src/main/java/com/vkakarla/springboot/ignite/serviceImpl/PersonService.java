@@ -23,6 +23,20 @@ public class PersonService implements IPersonService {
 	 }
 	 
 	 @Override
+	public Person updatePerons(Person person) {
+		return personRepository.save(person.getId(), person);
+		
+	}
+
+	@Override
+	public void deletePerons(Long id) {
+		List<Long> list = new ArrayList<>();
+		list.add(id);
+		personRepository.deleteAll(list);
+		
+	}
+
+	@Override
 	 public List<Person> getPerons(){
 		 
 		  System.out.println(personRepository.findAll());
