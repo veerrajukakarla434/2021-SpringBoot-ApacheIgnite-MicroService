@@ -32,22 +32,21 @@ public class PersonService implements IPersonService {
 	public void deletePerons(Long id) {
 		List<Long> list = new ArrayList<>();
 		list.add(id);
-		personRepository.deleteAll(list);
+		personRepository.deleteAllById(list);
 		
 	}
 
 	@Override
 	 public List<Person> getPerons(){
 		 
-		  System.out.println(personRepository.findAll());
-		 
-			  List<Person> pList = new ArrayList<>(); 
-			  
-			  for(Person p : personRepository.findAll()) {
-				  pList.add(p);
+		List<Person> plist = new ArrayList<>();
+			  Iterable<Person>  pList = personRepository.findAll();
+			  for(Person p : pList) {
+				  plist.add(p);
 			  }
 			 
-			return pList;
+			return plist;
 			
 	 }
+	
 }

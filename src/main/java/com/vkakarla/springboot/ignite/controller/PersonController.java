@@ -25,7 +25,7 @@ public class PersonController {
     public ResponseEntity<Object> getPersons() {
         return new ResponseEntity<>(personService.getPerons(),HttpStatus.OK);
     }
-
+	
     @PostMapping("/api/savePerson")
     public ResponseEntity<Object> savePersons(@RequestBody Person person) {
     	personService.savePerson(person);
